@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <!-- 数据库驱动-->
+    <classPathEntry  location="/"/>
+
+    <!--defaultModelType="flat"  联合主键时，不生成 Key.java-->
+    <context id="DB2Tables" targetRuntime="MyBatis3" defaultModelType="flat">
+    <!--<context id="DB2Tables" targetRuntime="MyBatis3">-->
+        <!-- 注释 -->
+        <commentGenerator >
+            <property name="suppressAllComments" value="true"/><!-- 是否取消注释 -->
+            <property name="suppressDate" value="true" /> <!-- 是否生成注释带时间戳-->
+
+        </commentGenerator>
+        <!-- local 数据库 -->
+        <!--<jdbcConnection driverClass="com.mysql.jdbc.Driver"-->
+                        <!--connectionURL="jdbc:mysql:///test"-->
+                        <!--userId="root"-->
+                        <!--password="123456">-->
+        <!-- sqlserver 数据库 -->
+        <!--<jdbcConnection driverClass="com.microsoft.sqlserver.jdbc.SQLServerDriver"-->
+                        <!--connectionURL="jdbc:sqlserver://localhost:1433;DatabaseName=test"-->
+                        <!--userId="sa"-->
+                        <!--password="123">-->
+        <!--</jdbcConnection>-->
+        <!-- oracle 数据库 -->
+        <!--<jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver"-->
+                        <!--connectionURL="jdbc:oracle:thin:@192.168.0.63:1521:orcl"-->
+                        <!--userId="system"-->
+                        <!--password="systemmanager">-->
+        <!--</jdbcConnection>-->
+        <!--ERP数据库-->
+        <jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver"
+                        connectionURL="jdbc:oracle:thin:@192.168.0.79:1521:topprod"
+                        userId="S30"
+                        password="S30">
+        </jdbcConnection>
+
+        <javaTypeResolver >
+            <property name="forceBigDecimals" value="false" />
+        </javaTypeResolver>
+
+        <!-- 修改包名字 -->
+        <javaModelGenerator targetPackage="cn.grand.demoboot.entity.tiptop" targetProject=".\src">
+            <property name="enableSubPackages" value="false" />
+            <property name="trimStrings" value="true" />
+        </javaModelGenerator>
+
+        <!--指定映射文件生成位置-->
+        <sqlMapGenerator targetPackage="cn.grand.demoboot.mapper.tiptop" targetProject=".\src">
+            <property name="enableSubPackages" value="false" />
+        </sqlMapGenerator>
+
+        <!--指定dao接口生成的位置，mapper接口 -->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="cn.grand.demoboot.mapper.tiptop" targetProject=".\src">
+            <property name="enableSubPackages" value="false" />
+        </javaClientGenerator>
+
+
+        <!-- 要生成的表 tableName是数据库中的表名或视图名 domainObjectName是实体类名-->
+        <!--<table tableName="xpGrid_User" domainObjectName="XpGridUser"-->
+               <!--enableCountByExample="true" enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true">-->
+        <!--</table>-->
+        <!--<table tableName="xpGrid_Role" domainObjectName="XpGridRole"-->
+               <!--enableCountByExample="true" enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true">-->
+        <!--</table>-->
+        <!--<table tableName="xpGrid_Functions" domainObjectName="XpGridFunctions"-->
+               <!--enableCountByExample="true" enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true">-->
+        <!--</table>-->
+        <!--<table tableName="xpGrid_FuncsInRoles" domainObjectName="XpGridFuncsInRoles"-->
+               <!--enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">-->
+        <!--</table>-->
+        <!--<table tableName="xpGrid_UsersInRoles" domainObjectName="XpGridUsersInRoles"-->
+               <!--enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">-->
+        <!--</table>-->
+        <!--<table tableName="xpGrid_FunctionsForPublic" domainObjectName="XpGridFunctionsForPublic"-->
+               <!--enableCountByExample="true" enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true">-->
+        <!--</table>-->
+
+        <table tableName="TC_QCBRF_FILE" domainObjectName="TC_QCBRF"
+        enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+        </table>
+
+        <table tableName="TC_BRF_FILE" domainObjectName="TC_BRF"
+               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+        </table>
+
+    </context>
+
+</generatorConfiguration>
